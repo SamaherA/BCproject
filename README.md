@@ -1,1 +1,1 @@
-# BreastCancer
+# BC project
