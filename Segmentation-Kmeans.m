@@ -60,46 +60,36 @@ figure;
 subplot(3,4,1),imshow(I,[]),title('Original');
 subplot(3,4,2),imshow(img,[]),title('Pre-processing');
 
-for clust = 1:k
-    
+for clust = 1:k 
      cluster = reshape(class(1:length(img_vect),clust:clust), [256,256] );
       subplot(3,4,clust+2),imshow(cluster,[]),title('Cluster');
-      
-     
+ 
   %%    
        if clust==k
-          
-         
-           
-           
+
           se90 = strel('line', 5, 90); 
           
           Idil = imdilate(cluster, se90);
      %   A = imcrop(cluster,[0 5 250 250]);
      
       J = imclearborder(Idil,8);
-      
-      
+
        se900 = strel('line', 5, 90);
        Idilr = imerode(J , se900);
-          
-       
+
        %subplot(3,4,k+3),imshow(J,[]),title('clean');
         subplot(3,4,k+3),imshow(Idilr,[]),title('Clean');
-      
-        
+
           %%
            BBB=Idilr;
            AAA = imresize(BBB, [1024,1024]);
            DDD=im2bw(AAA,1);
            subplot(3,4,k+4), imshow(DDD,[]);title('Binary');
-           
-          
+        
 %%
       subplot(3,4,k+5),imshow(I),title('G.T');
 
 hold on 
-
 
 x = miasex1.VarName5(v);
 y =1024-miasex1.VarName6(v);
@@ -149,9 +139,7 @@ subplot(3,4,k+6), imshow(binaryImage,[]);title(accuracy);
 b = boundaries{l};
 plot(b(:,2),b(:,1),'g','LineWidth',1);
 
-       end
-   
-      end
+       end end
   
       if clust==k
           
@@ -167,22 +155,17 @@ plot(b(:,2),b(:,1),'g','LineWidth',1);
           for n=1:com.NumObjects
           boundaries=bwboundaries(com.PixelIdxList(n));
           end 
-         
-          
-  subplot(3,4,k+3),imshow(cluster,[]);title('Tumor Boundaries');
-  
+      
+  subplot(3,4,k+3),imshow(cluster,[]);title('Tumor Boundaries');  
 hold on
-
 %draw tumor boundaries
 for l=1
 b = boundaries{l};
 plot(b(:,2),b(:,1),'r','LineWidth',1);
-end
 
-
-      end 
- 
 end
+end 
+end 
 end
 
         
