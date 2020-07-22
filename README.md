@@ -6,7 +6,6 @@ In this experiment, images inhanced using Tophat filter. Gray level co-occurrenc
 Kmeans--
 In this experiment, pre-processing step applied to remove the profile region of each image, after that k-means clustering technique used with number of clusters equal to 6. In order to improve the result, it is better if we remove the muscle area of the breast, and here we remove it by image boarder clearing. 
 
-Output:
 ![](kmeans%20out.png)
 
 CNN--
